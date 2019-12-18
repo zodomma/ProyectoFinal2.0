@@ -17,5 +17,15 @@ namespace Zodomma
             InitializeComponent();
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            loguin loguinn = new loguin();
+            loguinn.Visible=false;
+        }
     }
 }
