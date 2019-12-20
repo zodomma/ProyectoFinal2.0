@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CCategoria\Categoria.cs" />
+    <Compile Include="CCategoria\CategoriaLogica.cs" />
     <Compile Include="Logueo\Loguin.cs" />
     <Compile Include="Logueo\LoguinLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

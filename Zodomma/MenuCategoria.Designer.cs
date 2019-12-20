@@ -37,16 +37,26 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvCategoria
             // 
+            this.dgvCategoria.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_categoria,
+            this.nombre,
+            this.descripcion});
             this.dgvCategoria.Location = new System.Drawing.Point(12, 12);
             this.dgvCategoria.Name = "dgvCategoria";
             this.dgvCategoria.Size = new System.Drawing.Size(776, 155);
             this.dgvCategoria.TabIndex = 0;
+            this.dgvCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategoria_CellClick);
             // 
             // lblNombre
             // 
@@ -61,6 +71,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(16, 217);
+            this.txtNombre.MaxLength = 20;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(312, 20);
             this.txtNombre.TabIndex = 2;
@@ -78,6 +89,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(374, 217);
+            this.txtDescripcion.MaxLength = 150;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(414, 156);
@@ -91,6 +103,7 @@
             this.btnRegistrar.TabIndex = 6;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnActualizar
             // 
@@ -100,6 +113,7 @@
             this.btnActualizar.TabIndex = 7;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnBorrar
             // 
@@ -109,6 +123,7 @@
             this.btnBorrar.TabIndex = 8;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnVolver
             // 
@@ -118,12 +133,42 @@
             this.btnVolver.TabIndex = 9;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(122, 298);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(100, 23);
+            this.btnCancelar.TabIndex = 10;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // id_categoria
+            // 
+            this.id_categoria.DataPropertyName = "id_categoria";
+            this.id_categoria.HeaderText = "ID Categoria";
+            this.id_categoria.Name = "id_categoria";
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            // 
+            // descripcion
+            // 
+            this.descripcion.DataPropertyName = "descripcion";
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
             // 
             // MenuCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 396);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnActualizar);
@@ -135,7 +180,6 @@
             this.Controls.Add(this.dgvCategoria);
             this.Name = "MenuCategoria";
             this.Text = "Menu Categoria";
-            this.Load += new System.EventHandler(this.MenuCategoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -153,5 +197,9 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
     }
 }

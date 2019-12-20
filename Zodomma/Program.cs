@@ -16,7 +16,7 @@ namespace Zodomma
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new loguin());
+            Application.Run(new MenuCategoria());
         }
     }
 }

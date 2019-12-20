@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-12-2019 a las 01:15:26
--- Versión del servidor: 10.4.10-MariaDB
--- Versión de PHP: 7.3.12
+-- Tiempo de generación: 20-12-2019 a las 01:18:09
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -26,12 +26,28 @@ DELIMITER $$
 --
 -- Procedimientos
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SPActualizarCategoria` (IN `_id_categoria` INT, IN `_nombre` VARCHAR(20), IN `_descripcion` VARCHAR(150))  BEGIN
+	UPDATE tbl_categoria set nombre=_nombre,descripcion=_descripcion WHERE id_categoria=_id_categoria;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SPEliminarCategoria` (IN `_id_categoria` INT)  BEGIN
+	DELETE FROM tbl_categoria WHERE id_categoria=_id_categoria;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SPListarCategoria` ()  BEGIN
+	SELECT * FROM tbl_categoria;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SPLoguin` (IN `_usuario` VARCHAR(30), IN `_pass` VARCHAR(100))  BEGIN
 SELECT id_usuario,pass,tipo from tbl_usuario WHERE id_usuario=_usuario AND pass=_pass;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SPRegistrarAdmin` (IN `_usuario` VARCHAR(30), IN `_contra` VARCHAR(100), IN `_pregunta` VARCHAR(50), IN `_respuesta` VARCHAR(50), IN `_tusuario` INT)  BEGIN
 Insert into tbl_usuario(id_usuario,pass,pregunta,respuesta,tipo) VALUES (_usuario,_contra,_pregunta,_respuesta,_tusuario);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SPRegistrarCategoria` (IN `_nombre` VARCHAR(20), IN `_descripcion` VARCHAR(150))  BEGIN
+	INSERT INTO tbl_categoria (nombre,descripcion) VALUES (_nombre,_descripcion);
 END$$
 
 DELIMITER ;
@@ -47,6 +63,13 @@ CREATE TABLE `tbl_categoria` (
   `nombre` varchar(20) NOT NULL,
   `descripcion` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tbl_categoria`
+--
+
+INSERT INTO `tbl_categoria` (`id_categoria`, `nombre`, `descripcion`) VALUES
+(1, 'Cervesas Importadas', 'Categoria donde se guardan las cervezas que no son propias de nuestro pais');
 
 -- --------------------------------------------------------
 
@@ -175,7 +198,7 @@ ALTER TABLE `tbl_usuario`
 -- AUTO_INCREMENT de la tabla `tbl_categoria`
 --
 ALTER TABLE `tbl_categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_factura`
