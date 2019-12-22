@@ -27,5 +27,11 @@ namespace Zodomma
             loguin loguinn = new loguin();
             loguinn.Visible=false;
         }
+
+        private void regsitrarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistrarUsuarios registrarUsuarios = new RegistrarUsuarios();
+            registrarUsuarios.Show();
+        }
     }
 }

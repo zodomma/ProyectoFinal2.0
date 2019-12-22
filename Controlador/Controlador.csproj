@@ -52,6 +52,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrarAdministrador\UAdministrador.cs" />
     <Compile Include="RegistrarAdministrador\UAdministradorLogica.cs" />
+    <Compile Include="RregistroUser\RegistroUsuario.cs" />
+    <Compile Include="RregistroUser\RegistroUsuarioLogica.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Modelo\Modelo.csproj">

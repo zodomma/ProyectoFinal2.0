@@ -124,8 +124,9 @@
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(196, 103);
+            this.txtContraseña.Location = new System.Drawing.Point(196, 100);
             this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(200, 20);
             this.txtContraseña.TabIndex = 8;
             // 
@@ -133,16 +134,24 @@
             // 
             this.txtRcontraseña.Location = new System.Drawing.Point(196, 140);
             this.txtRcontraseña.Name = "txtRcontraseña";
+            this.txtRcontraseña.PasswordChar = '*';
             this.txtRcontraseña.Size = new System.Drawing.Size(200, 20);
             this.txtRcontraseña.TabIndex = 9;
             // 
             // cbPregunta
             // 
+            this.cbPregunta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPregunta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbPregunta.FormattingEnabled = true;
+            this.cbPregunta.Items.AddRange(new object[] {
+            "Nombre de la madre",
+            "Nombre del padre",
+            "Nombre de la primera mascota",
+            "Lugar de nacimiento"});
             this.cbPregunta.Location = new System.Drawing.Point(196, 177);
             this.cbPregunta.Name = "cbPregunta";
             this.cbPregunta.Size = new System.Drawing.Size(200, 21);
-            this.cbPregunta.TabIndex = 11;
+            this.cbPregunta.TabIndex = 26;
             // 
             // txtRespuesta
             // 
@@ -153,7 +162,13 @@
             // 
             // cbTpermisos
             // 
+            this.cbTpermisos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTpermisos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbTpermisos.FormattingEnabled = true;
+            this.cbTpermisos.Items.AddRange(new object[] {
+            "Administrador",
+            "Sub-Administrador",
+            "Empleado"});
             this.cbTpermisos.Location = new System.Drawing.Point(196, 249);
             this.cbTpermisos.Name = "cbTpermisos";
             this.cbTpermisos.Size = new System.Drawing.Size(200, 21);
@@ -169,6 +184,7 @@
             this.lblMensaje.Size = new System.Drawing.Size(112, 16);
             this.lblMensaje.TabIndex = 14;
             this.lblMensaje.Text = "Mensaje De error";
+            this.lblMensaje.Visible = false;
             // 
             // btnRegistrar
             // 
@@ -178,6 +194,7 @@
             this.btnRegistrar.TabIndex = 15;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // RegistrarUsuarios
             // 

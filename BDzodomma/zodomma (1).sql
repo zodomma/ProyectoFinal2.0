@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-12-2019 a las 01:18:09
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.1
+-- Tiempo de generación: 22-12-2019 a las 06:41:17
+-- Versión del servidor: 10.4.10-MariaDB
+-- Versión de PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -50,6 +50,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SPRegistrarCategoria` (IN `_nombre`
 	INSERT INTO tbl_categoria (nombre,descripcion) VALUES (_nombre,_descripcion);
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SPRegistrarUsuario` (IN `_USUARIO` VARCHAR(30), IN `_CONTRA` VARCHAR(100), IN `_PREGUNTA` VARCHAR(50), IN `_RESPUESTA` VARCHAR(50), IN `_TIPO` INT)  BEGIN
+insert into tbl_usuario(id_usuario,pass,pregunta,respuesta,tipo) VALUES (_USUARIO,_CONTRA,_PREGUNTA,_RESPUESTA,_TIPO);
+END$$
+
 DELIMITER ;
 
 -- --------------------------------------------------------
@@ -69,7 +73,8 @@ CREATE TABLE `tbl_categoria` (
 --
 
 INSERT INTO `tbl_categoria` (`id_categoria`, `nombre`, `descripcion`) VALUES
-(1, 'Cervesas Importadas', 'Categoria donde se guardan las cervezas que no son propias de nuestro pais');
+(1, 'Cervesas Importadas', 'Categoria donde se guardan las cervezas que no son propias de nuestro pais'),
+(4, 'vodka', 'tipos de vodka ');
 
 -- --------------------------------------------------------
 
@@ -198,7 +203,7 @@ ALTER TABLE `tbl_usuario`
 -- AUTO_INCREMENT de la tabla `tbl_categoria`
 --
 ALTER TABLE `tbl_categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_factura`
