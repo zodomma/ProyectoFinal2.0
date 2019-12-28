@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="CCategoria\Categoria.cs" />
     <Compile Include="CCategoria\CategoriaLogica.cs" />
+    <Compile Include="CInventario\Inventario.cs" />
+    <Compile Include="CInventario\InventarioLogica.cs" />
     <Compile Include="Logueo\Loguin.cs" />
     <Compile Include="Logueo\LoguinLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

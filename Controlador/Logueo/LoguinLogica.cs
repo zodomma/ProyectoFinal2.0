@@ -49,8 +49,5 @@ namespace Controlador.Logueo
             }
             return Table;
         }
-
-        
-
     }
 }
