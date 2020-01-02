@@ -97,6 +97,7 @@
             this.lblrecuperar.TabIndex = 4;
             this.lblrecuperar.TabStop = true;
             this.lblrecuperar.Text = "HAS OLVIDADO LA CONTRASEÑA?";
+            this.lblrecuperar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblrecuperar_LinkClicked);
             this.lblrecuperar.Enter += new System.EventHandler(this.lblrecuperar_Enter);
             // 
             // loguin

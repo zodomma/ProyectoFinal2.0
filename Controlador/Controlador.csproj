@@ -52,6 +52,8 @@
     <Compile Include="Logueo\Loguin.cs" />
     <Compile Include="Logueo\LoguinLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recuperar\RecuperarPass.cs" />
+    <Compile Include="Recuperar\RecuperarPassLogica.cs" />
     <Compile Include="RegistrarAdministrador\UAdministrador.cs" />
     <Compile Include="RegistrarAdministrador\UAdministradorLogica.cs" />
     <Compile Include="RregistroUser\RegistroUsuario.cs" />

@@ -99,5 +99,12 @@ namespace Zodomma
 
 
         }
+
+        private void lblrecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Recuperar recuperar = new Recuperar();
+
+            recuperar.Show();
+        }
     }
 }

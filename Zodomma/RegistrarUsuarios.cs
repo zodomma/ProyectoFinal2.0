@@ -28,7 +28,7 @@ namespace Zodomma
                 registros.setPasword(txtContraseña.Text);
                 registros.setPregunta(cbPregunta.Text);
                 registros.setRespuesta(txtRespuesta.Text);
-                registros.setTipo(2);
+                registros.setTipo(cbTpermisos.SelectedIndex+1);
 
                 registrosLogica = new RegistroUsuarioLogica(registros);
                 registrosLogica.registrarUsuario();
