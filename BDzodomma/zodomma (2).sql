@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-12-2019 a las 06:41:17
+-- Tiempo de generación: 03-01-2020 a las 01:22:03
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.3.12
 
@@ -41,6 +41,10 @@ END$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SPLoguin` (IN `_usuario` VARCHAR(30), IN `_pass` VARCHAR(100))  BEGIN
 SELECT id_usuario,pass,tipo from tbl_usuario WHERE id_usuario=_usuario AND pass=_pass;
 END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SPRecuperar` (IN `_usuario` VARCHAR(30), IN `_respuesta` VARCHAR(50), IN `_pass` VARCHAR(100))  BEGIN
+UPDATE tbl_usuario SET pass=_pass WHERE id_usuario=_usuario AND respuesta=_respuesta;
+end$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SPRegistrarAdmin` (IN `_usuario` VARCHAR(30), IN `_contra` VARCHAR(100), IN `_pregunta` VARCHAR(50), IN `_respuesta` VARCHAR(50), IN `_tusuario` INT)  BEGIN
 Insert into tbl_usuario(id_usuario,pass,pregunta,respuesta,tipo) VALUES (_usuario,_contra,_pregunta,_respuesta,_tusuario);
@@ -151,7 +155,9 @@ CREATE TABLE `tbl_usuario` (
 INSERT INTO `tbl_usuario` (`id_usuario`, `pass`, `pregunta`, `respuesta`, `tipo`) VALUES
 ('Admin', '123456', '2', 'ranger', 1),
 ('Administrador', '123456', 'Nombre del padre', 'jesus', 1),
-('subadmin', '123456', 'Nombre del padre', 'antonio', 1);
+('faither', 'jefer1226', 'Nombre de la madre', 'amparo', 2),
+('subadmin', '123456', 'Nombre del padre', 'antonio', 1),
+('will', 'wilder1991', 'Nombre de la madre', 'luz dary', 2);
 
 --
 -- Índices para tablas volcadas
