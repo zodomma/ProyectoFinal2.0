@@ -97,9 +97,11 @@
             this.btnRegresar.TabIndex = 18;
             this.btnRegresar.Text = "Regresar";
             this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // txtcodigo
             // 
+            this.txtcodigo.Enabled = false;
             this.txtcodigo.Location = new System.Drawing.Point(373, 16);
             this.txtcodigo.Name = "txtcodigo";
             this.txtcodigo.Size = new System.Drawing.Size(112, 20);
@@ -214,6 +216,7 @@
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnActualizar
             // 
@@ -223,6 +226,7 @@
             this.btnActualizar.TabIndex = 3;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnEliminar
             // 
@@ -241,6 +245,7 @@
             this.dgvproductos.Name = "dgvproductos";
             this.dgvproductos.Size = new System.Drawing.Size(543, 132);
             this.dgvproductos.TabIndex = 13;
+            this.dgvproductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvproductos_CellClick);
             // 
             // menuStrip1
             // 

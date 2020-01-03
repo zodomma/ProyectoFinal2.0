@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-01-2020 a las 01:22:03
--- Versión del servidor: 10.4.10-MariaDB
--- Versión de PHP: 7.3.12
+-- Tiempo de generación: 03-01-2020 a las 04:22:31
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,12 +30,28 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SPActualizarCategoria` (IN `_id_cat
 	UPDATE tbl_categoria set nombre=_nombre,descripcion=_descripcion WHERE id_categoria=_id_categoria;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SPActualizarProducto` (IN `_id_producto` INT, IN `_id_categoria` INT, IN `_nombre` VARCHAR(20), IN `_precio` INT, IN `_cantidad` INT)  BEGIN
+	UPDATE tbl_productos SET nombre=_nombre,precio=_precio,cantidad=_cantidad,id_categoria=_id_categoria WHERE id_productos=_id_producto;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SPEliminarCategoria` (IN `_id_categoria` INT)  BEGIN
 	DELETE FROM tbl_categoria WHERE id_categoria=_id_categoria;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SPEliminarProducto` (IN `_id_producto` INT)  BEGIN
+	DELETE FROM tbl_productos WHERE id_productos = _id_producto;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SPInsertarProducto` (IN `_id_categoria` INT, IN `_nombre` VARCHAR(20), IN `_precio` INT, IN `_cantidad` INT)  BEGIN
+	INSERT INTO tbl_productos (nombre,precio,cantidad,id_categoria) VALUES (_nombre,_precio,_cantidad,_id_categoria);
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SPListarCategoria` ()  BEGIN
 	SELECT * FROM tbl_categoria;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SPListarProductos` ()  BEGIN
+	SELECT p.id_productos,p.nombre,p.cantidad,p.precio,c.nombre FROM tbl_productos AS p JOIN tbl_categoria AS c ON p.id_categoria = c.id_categoria;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SPLoguin` (IN `_usuario` VARCHAR(30), IN `_pass` VARCHAR(100))  BEGIN
@@ -227,7 +243,7 @@ ALTER TABLE `tbl_gastos`
 -- AUTO_INCREMENT de la tabla `tbl_productos`
 --
 ALTER TABLE `tbl_productos`
-  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
