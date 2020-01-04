@@ -111,23 +111,29 @@
             // txtcantidad
             // 
             this.txtcantidad.Location = new System.Drawing.Point(278, 93);
+            this.txtcantidad.MaxLength = 10;
             this.txtcantidad.Name = "txtcantidad";
             this.txtcantidad.Size = new System.Drawing.Size(207, 20);
             this.txtcantidad.TabIndex = 16;
+            this.txtcantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantidad_KeyPress);
             // 
             // txtprecio
             // 
             this.txtprecio.Location = new System.Drawing.Point(278, 127);
+            this.txtprecio.MaxLength = 10;
             this.txtprecio.Name = "txtprecio";
             this.txtprecio.Size = new System.Drawing.Size(207, 20);
             this.txtprecio.TabIndex = 15;
+            this.txtprecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprecio_KeyPress);
             // 
             // txtnombre
             // 
             this.txtnombre.Location = new System.Drawing.Point(278, 54);
+            this.txtnombre.MaxLength = 20;
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(207, 20);
             this.txtnombre.TabIndex = 14;
+            this.txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombre_KeyPress);
             // 
             // lblcategoria
             // 

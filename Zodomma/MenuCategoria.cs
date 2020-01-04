@@ -137,6 +137,15 @@ namespace Zodomma
             btnCancelar.Enabled = false;
         }
 
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.sincaracteres(e);
+        }
+
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.sincaracteres(e);
+        }
     }
 }
     

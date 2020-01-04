@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
+            this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
@@ -38,9 +41,6 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +57,24 @@
             this.dgvCategoria.Size = new System.Drawing.Size(776, 155);
             this.dgvCategoria.TabIndex = 0;
             this.dgvCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategoria_CellClick);
+            // 
+            // id_categoria
+            // 
+            this.id_categoria.DataPropertyName = "id_categoria";
+            this.id_categoria.HeaderText = "ID Categoria";
+            this.id_categoria.Name = "id_categoria";
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            // 
+            // descripcion
+            // 
+            this.descripcion.DataPropertyName = "descripcion";
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
             // 
             // lblNombre
             // 
@@ -75,6 +93,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(312, 20);
             this.txtNombre.TabIndex = 2;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblDescripcion
             // 
@@ -94,6 +113,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(414, 156);
             this.txtDescripcion.TabIndex = 4;
+            this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcion_KeyPress);
             // 
             // btnRegistrar
             // 
@@ -144,24 +164,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // id_categoria
-            // 
-            this.id_categoria.DataPropertyName = "id_categoria";
-            this.id_categoria.HeaderText = "ID Categoria";
-            this.id_categoria.Name = "id_categoria";
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            // 
-            // descripcion
-            // 
-            this.descripcion.DataPropertyName = "descripcion";
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
             // 
             // MenuCategoria
             // 

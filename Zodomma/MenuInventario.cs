@@ -183,5 +183,20 @@ namespace Zodomma
             MessageBox.Show("Producto eliminado");
 
         }
+
+        private void txtnombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.sincaracteres(e);
+        }
+
+        private void txtcantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.solonumeros(e);
+        }
+
+        private void txtprecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.solonumeros(e);
+        }
     }
 }

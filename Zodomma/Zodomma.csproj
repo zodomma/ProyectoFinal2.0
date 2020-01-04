@@ -90,6 +90,7 @@
     <Compile Include="RegistrarUsuarios.Designer.cs">
       <DependentUpon>RegistrarUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="validar.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
