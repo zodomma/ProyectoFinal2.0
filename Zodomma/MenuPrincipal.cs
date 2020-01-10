@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Windows;
 
 namespace Zodomma
 {
@@ -16,7 +17,7 @@ namespace Zodomma
         public MenuPrincipal()
         {
             InitializeComponent();
-            
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -27,7 +28,7 @@ namespace Zodomma
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
             loguin loguinn = new loguin();
-            loguinn.Visible=false;
+            loguinn.Visible = false;
         }
 
         private void regsitrarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,41 +54,53 @@ namespace Zodomma
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            
+
             int mesa;
             string mesaa;
+
+            flowLayoutPanel2.Visible = false;
 
             for (mesa = 1; mesa <= 70; mesa++)
             {
 
-                    mesaa = mesa.ToString();
-                    flowLayoutPanel2.Controls.RemoveByKey(mesaa);
- 
+
+                mesaa = mesa.ToString();
+                flowLayoutPanel2.Controls.RemoveByKey(mesaa);
+
             }
+            flowLayoutPanel2.Visible = true;
 
 
             for (mesa = 1; mesa <= 40; mesa++) {
 
                 Button boton = new Button();
+                boton.Click += new EventHandler(btn_Clicked);
+               
                 boton.Text = ("Mesa" + mesa);
                 boton.Name = ("" + mesa);
                 boton.Size = new Size(118, 122);
                 flowLayoutPanel2.Controls.Add(boton);
-                
+
 
             }
-            
-           
-
-            //flowLayoutPanel2.Controls.Remove();
-
 
         }
+        private void btn_Clicked(object sender, EventArgs e)
+        {
+            Mesa mesa = new Mesa();
+            mesa.Show();
+            Button botton = sender as Button;
+            MessageBox.Show(botton.Name);
+
+        }
+
+       
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
             int mesa;
             string mesaa;
+            flowLayoutPanel2.Visible = false;
             for (mesa = 1; mesa <= 70; mesa++)
             {
 
@@ -95,11 +108,13 @@ namespace Zodomma
                 flowLayoutPanel2.Controls.RemoveByKey(mesaa);
 
             }
+            flowLayoutPanel2.Visible = true;
 
             for (mesa = 1; mesa <= 54; mesa++)
             {
 
                 Button boton = new Button();
+                boton.Click += new EventHandler(btn_Clicked);
                 boton.Text = ("Mesa" + mesa);
                 boton.Name = ("" + mesa);
                 boton.Size = new Size(104, 102);
@@ -113,6 +128,7 @@ namespace Zodomma
         {
             int mesa;
             string mesaa;
+            flowLayoutPanel2.Visible = false;
             for (mesa = 1; mesa <= 70; mesa++)
             {
 
@@ -120,11 +136,13 @@ namespace Zodomma
                 flowLayoutPanel2.Controls.RemoveByKey(mesaa);
 
             }
+            flowLayoutPanel2.Visible = true;
 
             for (mesa = 1; mesa <= 70; mesa++)
             {
 
                 Button boton = new Button();
+                boton.Click += new EventHandler(btn_Clicked);
                 boton.Text = ("Mesa" + mesa);
                 boton.Name = ("" + mesa);
                 boton.Size = new Size(93, 86);

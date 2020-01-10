@@ -116,6 +116,7 @@
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "loguin";
+            this.Load += new System.EventHandler(this.loguin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

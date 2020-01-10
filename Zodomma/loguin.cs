@@ -106,5 +106,10 @@ namespace Zodomma
 
             recuperar.Show();
         }
+
+        private void loguin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
