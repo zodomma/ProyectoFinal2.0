@@ -37,13 +37,26 @@ namespace Zodomma
             registrarUsuarios.Show();
         }
 
+        //Boton crear cliente
         private void button1_Click(object sender, EventArgs e)
         {
             Button boton = new Button();
+            boton.Click += new EventHandler(btnCliente_Clicked);
             boton.Text = Interaction.InputBox("Ingrese nombrbre:");
             boton.Name = boton.Text;
             boton.Size = new Size(320, 27);
             flowLayoutPanel1.Controls.Add(boton);
+           
+
+        }
+
+        private void btnCliente_Clicked(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();
+            cliente.Show();
+            Button botton = sender as Button;
+            cliente.Text = (botton.Name);
+            
 
         }
 
@@ -90,7 +103,7 @@ namespace Zodomma
             Mesa mesa = new Mesa();
             mesa.Show();
             Button botton = sender as Button;
-            MessageBox.Show(botton.Name);
+            mesa.Text = (botton.Text);
 
         }
 
