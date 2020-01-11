@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-01-2020 a las 04:22:31
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.1
+-- Tiempo de generación: 11-01-2020 a las 05:48:10
+-- Versión del servidor: 10.4.10-MariaDB
+-- Versión de PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -58,6 +58,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SPLoguin` (IN `_usuario` VARCHAR(30
 SELECT id_usuario,pass,tipo from tbl_usuario WHERE id_usuario=_usuario AND pass=_pass;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SPMostrarCategoria` ()  BEGIN
+SELECT nombre from tbl_categoria;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SPRecuperar` (IN `_usuario` VARCHAR(30), IN `_respuesta` VARCHAR(50), IN `_pass` VARCHAR(100))  BEGIN
 UPDATE tbl_usuario SET pass=_pass WHERE id_usuario=_usuario AND respuesta=_respuesta;
 end$$
@@ -94,7 +98,8 @@ CREATE TABLE `tbl_categoria` (
 
 INSERT INTO `tbl_categoria` (`id_categoria`, `nombre`, `descripcion`) VALUES
 (1, 'Cervesas Importadas', 'Categoria donde se guardan las cervezas que no son propias de nuestro pais'),
-(4, 'vodka', 'tipos de vodka ');
+(2, 'vodka', 'tipos de vodka '),
+(3, 'Aguardiente col', 'aguardientes de colombia');
 
 -- --------------------------------------------------------
 
@@ -103,11 +108,24 @@ INSERT INTO `tbl_categoria` (`id_categoria`, `nombre`, `descripcion`) VALUES
 --
 
 CREATE TABLE `tbl_dfactura` (
-  `id_factura` int(11) NOT NULL,
-  `id_productos` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL,
-  `subtotal` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_dfactura` int(10) DEFAULT NULL,
+  `id_producto` int(10) DEFAULT NULL,
+  `cantidad` int(3) DEFAULT NULL,
+  `subtital` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_dmesas`
+--
+
+CREATE TABLE `tbl_dmesas` (
+  `id_mesas` int(10) NOT NULL,
+  `id_productos` int(10) DEFAULT NULL,
+  `cantidad` int(3) DEFAULT NULL,
+  `subtotal` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -116,11 +134,12 @@ CREATE TABLE `tbl_dfactura` (
 --
 
 CREATE TABLE `tbl_factura` (
-  `id_factura` int(11) NOT NULL,
-  `mesa_cliente` varchar(30) NOT NULL,
-  `total` int(11) NOT NULL,
-  `fecha` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_factura` int(20) NOT NULL,
+  `mesas` int(3) DEFAULT NULL,
+  `cliente` varchar(30) DEFAULT NULL,
+  `total` int(10) DEFAULT NULL,
+  `fecha` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -139,6 +158,18 @@ CREATE TABLE `tbl_gastos` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tbl_mesa`
+--
+
+CREATE TABLE `tbl_mesa` (
+  `id_mesas` int(3) NOT NULL,
+  `total` int(10) DEFAULT NULL,
+  `estado` int(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tbl_productos`
 --
 
@@ -149,6 +180,18 @@ CREATE TABLE `tbl_productos` (
   `precio` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tbl_productos`
+--
+
+INSERT INTO `tbl_productos` (`id_productos`, `id_categoria`, `nombre`, `precio`, `cantidad`) VALUES
+(4, 1, 'pilsen', 1500, 50),
+(6, 2, 'old park', 600000, 4),
+(7, 3, 'garrafa tapa azul', 70000, 100),
+(8, 1, 'aguila', 2000, 200),
+(9, 1, 'aguila ligth', 2500, 300),
+(10, 2, 'black and white', 70000, 100);
 
 -- --------------------------------------------------------
 
@@ -189,20 +232,34 @@ ALTER TABLE `tbl_categoria`
 -- Indices de la tabla `tbl_dfactura`
 --
 ALTER TABLE `tbl_dfactura`
-  ADD KEY `id_factura` (`id_factura`),
+  ADD KEY `id_dfactura` (`id_dfactura`),
+  ADD KEY `id_producto` (`id_producto`);
+
+--
+-- Indices de la tabla `tbl_dmesas`
+--
+ALTER TABLE `tbl_dmesas`
+  ADD PRIMARY KEY (`id_mesas`),
   ADD KEY `id_productos` (`id_productos`);
 
 --
 -- Indices de la tabla `tbl_factura`
 --
 ALTER TABLE `tbl_factura`
-  ADD PRIMARY KEY (`id_factura`);
+  ADD PRIMARY KEY (`id_factura`),
+  ADD KEY `mesas` (`mesas`);
 
 --
 -- Indices de la tabla `tbl_gastos`
 --
 ALTER TABLE `tbl_gastos`
   ADD PRIMARY KEY (`id_costos`);
+
+--
+-- Indices de la tabla `tbl_mesa`
+--
+ALTER TABLE `tbl_mesa`
+  ADD PRIMARY KEY (`id_mesas`);
 
 --
 -- Indices de la tabla `tbl_productos`
@@ -225,13 +282,7 @@ ALTER TABLE `tbl_usuario`
 -- AUTO_INCREMENT de la tabla `tbl_categoria`
 --
 ALTER TABLE `tbl_categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `tbl_factura`
---
-ALTER TABLE `tbl_factura`
-  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_gastos`
@@ -243,7 +294,7 @@ ALTER TABLE `tbl_gastos`
 -- AUTO_INCREMENT de la tabla `tbl_productos`
 --
 ALTER TABLE `tbl_productos`
-  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
@@ -253,8 +304,21 @@ ALTER TABLE `tbl_productos`
 -- Filtros para la tabla `tbl_dfactura`
 --
 ALTER TABLE `tbl_dfactura`
-  ADD CONSTRAINT `tbl_dfactura_ibfk_1` FOREIGN KEY (`id_factura`) REFERENCES `tbl_factura` (`id_factura`),
-  ADD CONSTRAINT `tbl_dfactura_ibfk_2` FOREIGN KEY (`id_productos`) REFERENCES `tbl_productos` (`id_productos`);
+  ADD CONSTRAINT `tbl_dfactura_ibfk_1` FOREIGN KEY (`id_dfactura`) REFERENCES `tbl_factura` (`id_factura`),
+  ADD CONSTRAINT `tbl_dfactura_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `tbl_dmesas` (`id_productos`);
+
+--
+-- Filtros para la tabla `tbl_dmesas`
+--
+ALTER TABLE `tbl_dmesas`
+  ADD CONSTRAINT `tbl_dmesas_ibfk_1` FOREIGN KEY (`id_mesas`) REFERENCES `tbl_mesa` (`id_mesas`),
+  ADD CONSTRAINT `tbl_dmesas_ibfk_2` FOREIGN KEY (`id_productos`) REFERENCES `tbl_productos` (`id_productos`);
+
+--
+-- Filtros para la tabla `tbl_factura`
+--
+ALTER TABLE `tbl_factura`
+  ADD CONSTRAINT `tbl_factura_ibfk_1` FOREIGN KEY (`mesas`) REFERENCES `tbl_mesa` (`id_mesas`);
 
 --
 -- Filtros para la tabla `tbl_productos`

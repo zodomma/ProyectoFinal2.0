@@ -163,5 +163,22 @@ namespace Zodomma
 
             }
         }
+
+        private void inventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuInventario menuInventario = new MenuInventario();
+            menuInventario.Show();
+        }
+
+        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuCategoria menuCategoria = new MenuCategoria();
+            menuCategoria.Show();
+        }
     }
 }
