@@ -32,12 +32,12 @@
             this.btneliminar = new System.Windows.Forms.Button();
             this.btntransferir = new System.Windows.Forms.Button();
             this.btncancelar = new System.Windows.Forms.Button();
-            this.clcategoria = new System.Windows.Forms.CheckedListBox();
-            this.productos = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtcantidad = new System.Windows.Forms.TextBox();
             this.btnanadir = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lbCategoria = new System.Windows.Forms.ListBox();
+            this.lbProductos = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,6 +49,7 @@
             this.btncobrar.TabIndex = 0;
             this.btncobrar.Text = "COBRAR";
             this.btncobrar.UseVisualStyleBackColor = true;
+            this.btncobrar.Click += new System.EventHandler(this.btncobrar_Click);
             // 
             // btneliminar
             // 
@@ -77,22 +78,6 @@
             this.btncancelar.Text = "CANACELAR";
             this.btncancelar.UseVisualStyleBackColor = true;
             this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
-            // 
-            // clcategoria
-            // 
-            this.clcategoria.FormattingEnabled = true;
-            this.clcategoria.Location = new System.Drawing.Point(28, 42);
-            this.clcategoria.Name = "clcategoria";
-            this.clcategoria.Size = new System.Drawing.Size(120, 109);
-            this.clcategoria.TabIndex = 4;
-            // 
-            // productos
-            // 
-            this.productos.FormattingEnabled = true;
-            this.productos.Location = new System.Drawing.Point(172, 41);
-            this.productos.Name = "productos";
-            this.productos.Size = new System.Drawing.Size(120, 109);
-            this.productos.TabIndex = 5;
             // 
             // label1
             // 
@@ -129,23 +114,41 @@
             this.dataGridView1.Size = new System.Drawing.Size(240, 150);
             this.dataGridView1.TabIndex = 9;
             // 
+            // lbCategoria
+            // 
+            this.lbCategoria.FormattingEnabled = true;
+            this.lbCategoria.Location = new System.Drawing.Point(12, 41);
+            this.lbCategoria.Name = "lbCategoria";
+            this.lbCategoria.Size = new System.Drawing.Size(120, 95);
+            this.lbCategoria.TabIndex = 12;
+            this.lbCategoria.SelectedIndexChanged += new System.EventHandler(this.lbCategoria_SelectedIndexChanged);
+            // 
+            // lbProductos
+            // 
+            this.lbProductos.FormattingEnabled = true;
+            this.lbProductos.Location = new System.Drawing.Point(154, 41);
+            this.lbProductos.Name = "lbProductos";
+            this.lbProductos.Size = new System.Drawing.Size(120, 95);
+            this.lbProductos.TabIndex = 13;
+            // 
             // Mesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(315, 375);
+            this.Controls.Add(this.lbProductos);
+            this.Controls.Add(this.lbCategoria);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnanadir);
             this.Controls.Add(this.txtcantidad);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.productos);
-            this.Controls.Add(this.clcategoria);
             this.Controls.Add(this.btntransferir);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btncobrar);
             this.Name = "Mesa";
             this.Text = "Mesa";
+            this.Load += new System.EventHandler(this.Mesa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -158,11 +161,11 @@
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Button btntransferir;
         private System.Windows.Forms.Button btncancelar;
-        private System.Windows.Forms.CheckedListBox clcategoria;
-        private System.Windows.Forms.CheckedListBox productos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtcantidad;
         private System.Windows.Forms.Button btnanadir;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ListBox lbCategoria;
+        private System.Windows.Forms.ListBox lbProductos;
     }
 }

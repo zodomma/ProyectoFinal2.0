@@ -69,7 +69,7 @@ namespace Zodomma
             try
             {
                 DataTable tablita = null;
-
+                
 
                 ingresar = new Loguin();
                 ingresar.setUser(txtusuario.Text);
@@ -87,6 +87,8 @@ namespace Zodomma
                 
                 menuPrincipal.Show();
                 this.Hide();
+
+                
                 
             }
             catch

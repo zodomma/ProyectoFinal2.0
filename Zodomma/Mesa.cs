@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador.CCategoria;
+using Controlador.CInventario;
 
 namespace Zodomma
 {
@@ -16,6 +17,11 @@ namespace Zodomma
         Categoria categoria = null;
         CategoriaLogica categoriaLogica = null;
         DataTable dttcategoria = null;
+
+        Inventario inventario = null;
+        InventarioLogica InventarioLogica = null;
+        DataTable dttinventario = null;
+       
         public Mesa()
         {
             InitializeComponent();
@@ -42,12 +48,53 @@ namespace Zodomma
 
             if (dttcategoria.Rows.Count > 0)
             {
-                clcategoria.DataSource = dttcategoria;
+                int cantidadC = dttcategoria.Rows.Count;
+                
+                for (int i = 0; i < cantidadC; i++)
+                {
+                    lbCategoria.Items.Add(dttcategoria.Rows[i][1].ToString());
+                }
+                
             }
             else
             {
                 MessageBox.Show("No hay categorias registradas");
             }
+        }
+
+        private void btncobrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Mesa_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            inventario = new Inventario();
+            InventarioLogica = new InventarioLogica(inventario);
+
+            dttinventario = InventarioLogica.ListarProductos();
+            if (dttinventario.Rows.Count > 0)
+            {
+                int cantidadC = dttinventario.Rows.Count;
+
+                for (int i = 0; i < cantidadC; i++)
+                {
+                    //if (dttcategoria.Rows[i][0] == dttinventario.Rows[i][0]) {
+                        lbProductos.Items.Add(dttinventario.Rows[i][1].ToString());
+                    //}
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No hay categorias registradas");
+            }
+
         }
     }
 }
