@@ -35,10 +35,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtcantidad = new System.Windows.Forms.TextBox();
             this.btnanadir = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgListarProductos = new System.Windows.Forms.DataGridView();
             this.lbCategoria = new System.Windows.Forms.ListBox();
             this.lbProductos = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.aa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgListarProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // btncobrar
@@ -49,7 +54,7 @@
             this.btncobrar.TabIndex = 0;
             this.btncobrar.Text = "COBRAR";
             this.btncobrar.UseVisualStyleBackColor = true;
-            this.btncobrar.Click += new System.EventHandler(this.btncobrar_Click);
+            
             // 
             // btneliminar
             // 
@@ -106,13 +111,18 @@
             this.btnanadir.UseVisualStyleBackColor = true;
             this.btnanadir.Click += new System.EventHandler(this.btnanadir_Click);
             // 
-            // dataGridView1
+            // dgListarProductos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 211);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 9;
+            this.dgListarProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgListarProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.aa,
+            this.Cantidad,
+            this.Precio,
+            this.total});
+            this.dgListarProductos.Location = new System.Drawing.Point(12, 209);
+            this.dgListarProductos.Name = "dgListarProductos";
+            this.dgListarProductos.Size = new System.Drawing.Size(425, 150);
+            this.dgListarProductos.TabIndex = 9;
             // 
             // lbCategoria
             // 
@@ -126,19 +136,49 @@
             // lbProductos
             // 
             this.lbProductos.FormattingEnabled = true;
-            this.lbProductos.Location = new System.Drawing.Point(154, 41);
+            this.lbProductos.Location = new System.Drawing.Point(226, 41);
             this.lbProductos.Name = "lbProductos";
             this.lbProductos.Size = new System.Drawing.Size(120, 95);
             this.lbProductos.TabIndex = 13;
+            // 
+            // aa
+            // 
+            this.aa.HeaderText = "Producto";
+            this.aa.Name = "aa";
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // total
+            // 
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(402, 372);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "label2";
             // 
             // Mesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 375);
+            this.ClientSize = new System.Drawing.Size(449, 394);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lbProductos);
             this.Controls.Add(this.lbCategoria);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgListarProductos);
             this.Controls.Add(this.btnanadir);
             this.Controls.Add(this.txtcantidad);
             this.Controls.Add(this.label1);
@@ -149,7 +189,7 @@
             this.Name = "Mesa";
             this.Text = "Mesa";
             this.Load += new System.EventHandler(this.Mesa_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgListarProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,8 +204,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtcantidad;
         private System.Windows.Forms.Button btnanadir;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgListarProductos;
         private System.Windows.Forms.ListBox lbCategoria;
         private System.Windows.Forms.ListBox lbProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.Label label2;
     }
 }

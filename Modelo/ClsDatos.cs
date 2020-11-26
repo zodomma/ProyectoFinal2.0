@@ -31,7 +31,7 @@ namespace Modelo
 
         #region Metodos
         /*Metodos usados para ejecutar los procedimientos almacenados y 
-          las diferentes colsultas a la base de datos*/
+          las diferentes consultas a la base de datos*/
 
         //SP significa store procedure = procedimiento almacenado
         /*EjecutarSP es el metodo encargado de ejecutar los procedimientos
